@@ -6,8 +6,8 @@ class create {
     this.server = 'Server';
     this.controller = `${this.server}/Controllers`;
     this.middleware = `${this.server}/Middlewares`;
-    this.model = 'Models'
-    this.route = 'Routes';
+    this.model = `${this.server}/Models`;
+    this.route = `${this.server}/Routes`;
   }
   createBaseFolder() {
 
@@ -27,56 +27,56 @@ class create {
   createControllerFolder() {
 
     // check if folder `Controllers` already exists
-    if (!fs.existsSync(`${this.folder}/controllers`)) {
+    if (!fs.existsSync(`${this.controller}`)) {
       // create `Controllers` folder
-      fs.mkdirSync(`${this.folder}/controllers`);
+      fs.mkdirSync(`${this.controller}`);
       return;
     }
 
     // TODO: work on errors
     const err = new Error();
-    err.message = `${this.folder}/controllers already exists`;
+    err.message = `${this.controller} already exists`;
     console.error(err);
   }
 
   createMiddlewareFolder() {
 
     // check if folder `Middlewares` already exists
-    if (!fs.existsSync(`${this.folder}/middlewares`)) {
+    if (!fs.existsSync(`${this.middleware}`)) {
       // create `Middleware` folder
-      fs.mkdirSync(`${this.folder}/middlewares`);
+      fs.mkdirSync(`${this.middleware}`);
       return;
     }
 
     // TODO: workd on errors
     const err = new Error();
-    err.message = `${this.folder}/middlewares already exists`;
+    err.message = `${this.middleware} already exists`;
     console.error(err);
   }
 
   createModelFolder() {
     // check if folder `Models` already exists
-    if (!fs.existsSync(`${this.folder}/models`)) {
+    if (!fs.existsSync(`${this.model}`)) {
       // create `Models` folder
-      fs.mkdirSync(`${this.folder}/models`);
+      fs.mkdirSync(`${this.model}`);
       return;
     }
 
     const err = new Error();
-    err.message = `${this.folder}/models already exists`;
+    err.message = `${this.model} already exists`;
     console.error(err);
   }
 
   createRouteFolder() {
     // check if folder `Routes` already exists
-    if (!fs.existsSync(`${this.folder}/routes`)) {
+    if (!fs.existsSync(`${this.route}`)) {
       // create `Routes` folder
-      fs.mkdirSync(`${this.folder}/routes`);
+      fs.mkdirSync(`${this.route}`);
       return;
     }
 
     const err = new Error();
-    err.message = `${this.folder}/routes already exists`;
+    err.message = `${this.route} already exists`;
     console.error(err);
   }
 } 
