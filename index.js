@@ -79,7 +79,28 @@ class create {
     err.message = `${this.route} already exists`;
     console.error(err);
   }
-} 
+
+  createPackageFile() {
+
+    if (!fs.existsSync('./package.json')) {
+
+      fs.readFile("./files/package.json", "utf-8", (err, data) => {
+        if (err) { console.log(err) }
+
+        fs.writeFile("./package.json", data, (err) => {
+          if (err) console.log('Error creating package.json file');
+
+          console.log("Successfully created package.json.");
+        });
+      })
+      return;
+    }
+
+    const err = new Error();
+    err.message = `package.json already exists`;
+    console.error(err);
+  }
+}
 
 
 const create1 = new create();
@@ -88,3 +109,4 @@ create1.createControllerFolder();
 create1.createMiddlewareFolder();
 create1.createModelFolder();
 create1.createRouteFolder();
+create1.createPackageFile();
