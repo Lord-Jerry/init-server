@@ -1,6 +1,6 @@
 {
-  "name": "create-server",
-  "version": "1.0.0",
+  "name": "init-server",
+  "version": "1.0.1",
   "description": "",
   "licenses": [
     {
@@ -15,7 +15,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bugs": {
+    "url": "https://github.com/Lord-Jerry/init-server/issues"
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Ajayi Jeremiah <lovinjerry004@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+  }
 }

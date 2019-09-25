@@ -111,7 +111,7 @@ class create {
   createPackageFile() {
     // check if `package.json` file already exist
     if (!fs.existsSync(`${this.server}/package.json`)) {
-      
+
       const file = path.join(__dirname, '../files/package.json');
       fs.readFile(file, "utf-8", (err, data) => {
         if (err) {
@@ -473,44 +473,8 @@ class create {
     console.error(`db.js already exists`);
   }
 
-  /**
-   * FIXME: this method doesnt work yet
-   * this method runs `npm install`
-   */
-  runInstall() {
-    const spawn = require('child_process').spawn;
-    const child = spawn('npm i');
-
-    child.stdout.on('data', function (chunk) {
-      console.info(chunk);
-    });
-
-  }
-
-  promptInstall() {
-    const readline = require("readline");
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout
-    });
-
-    rl.question("Do you want to run npm instal [Y/N] ", (res) => {
-      if (res.toLowerCase() === 'Y') {
-        const spawn = require('child_process').spawn;
-        const child = spawn('ls');
-        console.log(child)
-
-        child.stdout.on('data', function (chunk) {
-          console.info(chunk);
-        });
-      }
-
-      else process.exit(0);
-    });
-  }
-
-
 }
+
 
 
 const init = new create();
@@ -532,4 +496,3 @@ init.createValidatorFile();
 init.createAuthFile();
 init.createErrorFile();
 init.createDbFile();
-setTimeout(init.promptInstall, 2000)
